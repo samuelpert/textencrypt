@@ -10,8 +10,6 @@ This project implements the Caesar cipher, a simple encryption technique where e
 - **caesar.c**: The main program file that implements the Caesar cipher encryption.
 
 ## Libraries Used:
-- **cs50.h**: This is a helper library provided by the CS50 course, which simplifies getting user input.
-  - To compile the program, you will need to install the CS50 library or replace the CS50-specific input functions (`get_string()`, `get_int()`) with standard C input functions like `scanf()`.
 - **string.h**: Standard C library used for string manipulation.
 
 ## Usage:
