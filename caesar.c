@@ -1,5 +1,4 @@
 #include <string.h>
-#include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,33 +18,23 @@ int main(int argc, string argv[])
     }
 
     //Convert argv[1] from 'string' to an 'int'
-    int n = 0;
-    n = atoi(argv[1]);
+    int n = atoi(argv[1]);
 
+    char s[10000];
     //Prompt user for plaintext
-    string s = get_string("Plaintext:  ");
+    printf("Plaintext: ");
+    fgets(s, sizeof(s), stdin);
 
 
-    //Rotate the character if it's a letter
-    int l = 0;
-    int d = 0;
-    char c;
-    for (l = 0, d = strlen(s); l < d; l++)
+    // Print the ciphered text
+    printf("Ciphertext: ");
+    for (int l = 0, d = strlen(s); l < d; l++)
     {
-        c = rotate(s[l], n);
-        s[l] = c;
+        printf("%c", rotate(s[l], n));  // Rotate and print each character
     }
+    printf("\n");
 
-    printf("Ciphertext: %s\n", s);
-
-
-
-
-
-
-
-
-
+    return 0;
 
 }
 
@@ -58,12 +47,12 @@ bool only_digits(string text)
     int n = 0;
     for (i = 0, n = strlen(text); i < n; i++)
     {
-        if (text[i] >= '0' && text[i] <= '9')
+        if (!isdigit(text[i]))
         {
-            return true;
+            return false;
         }
     }
-    return false;
+    return true;
 
 
     //For each character in the plain text
